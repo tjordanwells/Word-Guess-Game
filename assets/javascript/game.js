@@ -1,27 +1,37 @@
-var computerOptions = [
-    "Dale Cooper",
-    "Audrey Horne",
-    "The Log Lady",
-    "The Black Lodge",
-    "One Eyed Jacks"
+var character = [
+    "cooper",
+    "audrey",
+    "owls",
+    "laura",
+    "coffee",
+    "pie"
 ];
 
-var userOptions = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+var answer = character[Math.floor(Math.random() * character.length)];
 
-var currentWord = {
-    dale: "_ _ _ _  _ _ _ _ _ _",
-    audrey: "_ _ _ _ _ _  _ _ _ _ _",
-    logLady: "_ _ _  _ _ _  _ _ _ _",
-    blackLodge: "_ _ _  _ _ _ _ _  _ _ _ _ _",
-    oneEyedJacks: "_ _ _  _ _ _ _  _ _ _ _ _"
-};
+var characterBlank = [];
+for (i =0; i < character.length; i++) {
+    characterBlank[i] = " _ ";
+}
 
-var wins = 0;
+var remainingLetters = answer.length;
+
+var wins = 0;    
 var guessesRemaining = 10;
-var answer = [];
 var lettersGuessed = [];
 
-var computerGuess = computerOptions(Math.floor(Math.random() * computerOptions.length));
 
-console.log(computerGuess);
+document.onkeyup = function(event) {
+    var userGuess = event.key;
+
+    var html = 
+        "<p>Wins: " + wins + "</p>" +
+        "<p>Current Word: " + characterBlank + "</p>" +
+        "<p>Guesses Left: " + guessesRemaining + "</p>" +
+        "<p>Letters Guessed: " + lettersGuessed + "</p>";
+
+    document.querySelector("#game").innerHTML = html;
+        
+}
+
 
