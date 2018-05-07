@@ -9,29 +9,50 @@ var character = [
 
 var answer = character[Math.floor(Math.random() * character.length)];
 
+console.log(answer);
+
 var characterBlank = [];
-for (i =0; i < character.length; i++) {
+for (i = 0; i < answer.length; i++) {
     characterBlank[i] = " _ ";
 }
 
-var remainingLetters = answer.length;
-
-var wins = 0;    
+var wins = 0;
 var guessesRemaining = 10;
 var lettersGuessed = [];
 
 
-document.onkeyup = function(event) {
+document.onkeyup = function (event) {
     var userGuess = event.key;
 
-    var html = 
-        "<p>Wins: " + wins + "</p>" +
-        "<p>Current Word: " + characterBlank + "</p>" +
-        "<p>Guesses Left: " + guessesRemaining + "</p>" +
-        "<p>Letters Guessed: " + lettersGuessed + "</p>";
+    document.getElementById("wins").innerHTML = wins;
+    document.getElementById("current word").innerHTML = characterBlank;
+    document.getElementById("guesses left").innerHTML = guessesRemaining;
+    document.getElementById("letters guessed").innerHTML = lettersGuessed;
 
-    document.querySelector("#game").innerHTML = html;
-        
+    if (answer === "audrey") {
+        if (userGuess === "a") {
+            characterBlank.replace(characterBlank, "a _ _ _ _ _");
+        }
+    }
+
+    if (answer === "cooper") {
+
+    }
+
+    if (answer === "owls") {
+
+    }
+
+    if (answer === "laura") {
+
+    }
+
+    if (answer === "coffee") {
+
+    }
+
+    if (answer === "pie") {
+
+    }
+
 }
-
-
